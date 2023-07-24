@@ -1,0 +1,46 @@
+<div style="background-color: #f7f6f4; height: 100vh; overflow-y: hidden;" class="p-4 p-md-5 text-center text-lg-start shadow-1-strong rounded">
+    <div class="row d-flex justify-content-center mt-5">
+        <div class="col-md-10">
+            <form class="card container bg-white border p-2">
+                <h5 class="text-center mt-5">Login</h5>
+                <div class="card-body m-3">
+                    <form action="" [formGroup]="request">
+
+                        <!-- Username input -->
+                        <div class="form-outline mb-4 col-sm-8 mx-auto" [class.error]="request.controls['Username'].dirty && request.hasError('required', 'Username')">
+                            <label class="form-label" for="form2Example1">Username</label>
+                            <input type="text" name="Username" (keyup.enter)="Login()" formControlName="Username" id="form2Example1" class="form-control" />
+                            <small *ngIf="request.controls['Username'].dirty && request.hasError('required', 'Username')" class="text-danger">*Username is required</small>
+                        </div>
+                    
+                        <!-- Password input -->
+                        <div class="form-outline mb-4 col-sm-8 mx-auto" [class.error]="request.controls['Password'].dirty && request.hasError('required', 'Password')">
+                            <label class="form-label" for="form2Example2">Password</label>
+                            <input type="password" (keyup.enter)="Login()" formControlName="Password" id="form2Example2" class="form-control" />
+                            <small *ngIf="request.controls['Password'].dirty && request.hasError('required', 'Password')" class="text-danger">*Password is required</small>
+                        </div>
+                    
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4 text-center">
+                            <div class="col">
+                                <!-- Simple link -->
+                                <a href="#!">Forgot password?</a>
+                            </div>
+                        </div>
+                    
+                        <!-- Submit button -->
+                        <div class="text-center">
+                            <button type="button" (click)="Login()" class="btn btn-primary btn-block mb-4">Sign in</button>
+                        </div>
+                    
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>Not a member? <a routerLink="/register" href="#!">Register</a></p>
+                        </div>
+
+                    </form>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
